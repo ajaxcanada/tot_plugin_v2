@@ -110,7 +110,7 @@ function create_main_area($user_nav_selection){
             // if($count++ == 8){break;}
        }
        $out .= " </div> ";
-       //$out .= "<br>"; 
+       //this is test  $out .= "<br>"; 
     } 
 
     $out .= "<input type='submit' name='UPDATE_RECORD' value='update record'>"; // the add new button
