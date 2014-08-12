@@ -1,0 +1,269 @@
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+/* hide title off record page */
+.post-1282 .entry-title {display: none;}
+//.post-1282 
+
+
+/* ================================== */
+/* This is the smaller screen sizes CSS */
+/* ================================== */
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+.body{
+	
+	}
+
+#wrapper {
+     width: 100%;      margin: 0 auto; 
+}
+
+#TOT_NAV{
+    float: left;  width: 95%; 	min-width: 95%;     min-height: 200px;
+	padding-bottom: 2px;	padding-left: 0px;
+}
+
+#TOT_MAIN_USER_FORM{
+ 	float: left;    min-width: 95%;     min-height: 200px;
+	padding-bottom: 2px; 	padding-left: 0px;
+}
+
+#TOT_FOOTER{
+	float: bottom; 	clear: both;   min-width: 95%;	  height: 30px;    
+	padding-left: 0px;    padding-bottom: 2px;
+    
+}}
+
+
+
+/* ================================== */
+/* This is the normal screen size CSS */
+/* ================================== */
+
+
+
+
+.field_table {
+    overflow-x: scroll; 
+    overflow-y: hidden;   
+    border:1px solid black; 
+    border-radius:0px;
+}
+
+#fixedheight td {
+    height: 20px;
+    overflow: hidden;
+}
+
+th,td,tr {
+ border:1px solid black; 
+border-radius:0px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+}
+
+tr{
+height:10px;
+}
+
+#sh {
+height: 20px;
+overflow: hidden;
+}
+
+#main_table {width: 400px;
+font-size: .75em;  
+border:2px solid black;
+border-radius:0px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+}
+
+
+
+
+
+
+.body{
+	margin: 0 auto;  	width:70%;       font-family: verdana;
+}
+a {  
+	color: #ffffff;
+	/* text-decorations: none; */
+}
+
+a:link, a:visited {
+	color: #fff;
+
+}
+
+a:hover, a:active {
+}
+
+#navigation {
+   width:98%;  height: 45px;  padding-top: 0px; }
+
+#TOT_NAV{ font-size: .75em;
+    float: left;     width: 10%; 	min-width: 150px; 	min-height: 100px;     
+    margin-bottom: 10px;
+    padding-left: 5px ;
+    border-style: solid;  border-width: 0px;  	
+    background-color: #ffffff; }
+
+#TOT_MAIN_USER_FORM{
+    font-size: .75em;
+    float: left;      	width: 75%;      min-height: 100px;
+    margin-left: 30px;     margin-bottom: 10px;
+    padding-left: 38px; 	padding-top: 10px;
+    border-style: solid;  	border-width: 2px;  	border-color: #000000;
+    background-color: #ffffff;
+}
+
+#TOT_FOOTER{font-size: .75em;
+	float: bottom; 	clear: both; 	height: 30px;  	width: 97%;
+	font-size: .65em;    padding-left: 10px;  padding-top: 1px;
+	border-style: solid; 	border-width: 0px; 	border-color: #ffffff; 
+    border-bottom-left-radius: 5px;     border-bottom-right-radius: 5px;
+}
+
+#send_SMS{
+	font-size: .75em; 
+	border-style: solid;  	border-width: 1px;  	border-color: #000000;
+	margin-bottom: 10px; 
+        display:none;
+}
+
+
+.myButton {
+	margin-bottom: 2px;
+	background-color:#000000;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Trebuchet MS;
+	font-size:12px;
+	font-weight:bold;
+	padding:1px 10px;
+	/* text-decoration:none; */
+}
+.myButton:hover {
+	background-color:#ffffff; 
+	color:#000000; 
+	border-color: #000;
+	border-style: solid; 	border-width: 1px;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+div.bottom {
+    height: 200px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: none;
+    margin-bottom: none;
+    border-top: 4px solid #00ccff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #575757;
+}
+
+
+div.col {
+    float: left;
+    width: 33%;
+}
+#new_record_entry{
+	//width:500px;
+	font-size: .8em;
+	font-weight:bold;
+	color: #000000;
+	padding:5px 10px; 
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	background-color: #E6E6E6;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+
+}
+#message{
+}
+#footer_info{
+	font-size: .75em;
+	padding:1px 5px; 
+	border-style: solid;
+	border-width: 4px;
+	border-color:  #000000;
+	color: #000000;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+}
+#db_row{
+	//background-color: #fffccc;
+	//border: 10px black;
+	//border: 1px dashed #FADFAD;
+	//color: black;
+	//color: #B4357;
+	//font-weight:bold;
+	
+	padding:3px 5px; 
+	font-size: 0.7em;
+	border-radius: 2px;
+        padding: 0px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+}
+#db_row:nth-child(even) {
+	background: #d2e4fc;
+	//border-width:1px;	
+	//border-style:solid;
+	//border-color: #000000;
+}
+#db_row:nth-child(odd) {
+	//background: #cdd7b6;
+	border-width:1px;	
+	border-style:solid;
+	border-color: #000000;
+}
+
+hr { display: block; height: 1px;
+    border: 0; border-top: 1px solid #ccc;
+    margin: 1em 0; padding: 0; }
+
+#existing_record_group {
+    padding: 5px;
+	line-height: 2;
+	height: 30px;
+	border-radius: 5px;
+    font-family: verdana;
+	font-size: 1em;
+}
+
+input[type=button], input[type=text]
+{
+    border-radius: 5px;
+    font-family: verdana;
+	font-size: 1em;
+}
+input[type=submit] {
+	font-size: 1em;
+	padding: 5px 15px; 
+	background:#000; 
+	border:0 none;
+    font-family: verdana;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+}
+
+
