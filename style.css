@@ -47,44 +47,66 @@ only screen and (max-width: 760px),
 
 
 
-.field_table {
+.DIV_TABLE {
     overflow-x: scroll; 
-    overflow-y: hidden;   
-    border:1px solid black; 
+    overflow-y: hidden;
+    white-space: nowrap;
+    
+/*    border:1px solid black; 
+    border-radius:0px;*/
+}
+
+#DIV_ROW {
+   height: 22px;
+   font-size: 1em;
+   margin: 1px;
+}
+
+#DIV_ROW input {
+/*   color: #000;*/
+    
+}
+
+
+th, td {
+    border-spacing: 0px;
+    text-indent: -3px;    
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+/*    border:1px solid black; 
     border-radius:0px;
-}
-
-#fixedheight td {
-    height: 20px;
-    overflow: hidden;
-}
-
-th,td,tr {
- border:1px solid black; 
-border-radius:0px;
--moz-border-radius:0px;
--webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;*/
 }
 
 tr{
-height:10px;
+    height:10px;
 }
 
-#sh {
-height: 20px;
-overflow: hidden;
+
+#it {
+   //border:1px black; 
+   //height: 10px;
+   color: #ccc;
+   font-size: 1em;  
+   //overflow: hidden;
 }
 
-#main_table {width: 400px;
-font-size: .75em;  
+#main_table {
+    border-collapse:collapse;
+    
+    
+    
+}
+
+
+spare {
 border:2px solid black;
-border-radius:0px;
--moz-border-radius:0px;
--webkit-border-radius:0px;
+    border-radius:0px;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;
 }
-
-
-
 
 
 
@@ -249,18 +271,19 @@ hr { display: block; height: 1px;
 	font-size: 1em;
 }
 
+
 input[type=button], input[type=text]
 {
     border-radius: 5px;
     font-family: verdana;
-	font-size: 1em;
+	font-size: .65em;
 }
 input[type=submit] {
 	font-size: 1em;
 	padding: 5px 15px; 
 	background:#000; 
 	border:0 none;
-    font-family: verdana;
+        font-family: verdana;
 	cursor:pointer;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; 
