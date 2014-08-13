@@ -7,14 +7,13 @@ add_action('init', 'process_post'); // This loads the function thats used to cap
 // PROCESS FIELDS FORMS AND GROUP FORMS
 
 
-function show_group($group_requested){
+function change_group($group_requested){
     global $myMsg;
     global $user_nav_selection;
 
-    $myMsg = "Group is >".$group_requested."<";
-    $user_nav_selection =  $group_requested;
-
-    
+    $myMsg .= "function CHANGE_GROUP (".$group_requested.")";
+     $_SESSION["Group"] =  $group_requested;
+   
 }
         
 if(!function_exists('process_post')) {
@@ -22,16 +21,26 @@ function process_post(){
     global $wpdb;
     global $myMsg;
     global $data_group;
+    global $user_nav_selection;
+    
     $form_nonce = filter_input(INPUT_POST, 'db_update_secure_nonce_field', FILTER_SANITIZE_STRING);
     $group_requested = filter_input(INPUT_POST, 'navigator', FILTER_SANITIZE_SPECIAL_CHARS);
-
+    $update_main_form = filter_input(INPUT_POST, 'UPDATE_MAIN_RECORD', FILTER_SANITIZE_SPECIAL_CHARS);
+    
+    //$myMsg .= "fun ".$update_main_form;
     //$form_name_field = filter_input(INPUT_POST, 'fields_form', FILTER_SANITIZE_SPECIAL_CHARS);
     if (! empty($form_nonce) && (wp_verify_nonce($form_nonce, 'db_update_nonce_field'))){
         if (isset( $group_requested )){
-            show_group($group_requested);
-        } else { 
+            change_group($group_requested);
+        } 
+        if (isset( $update_main_form )){ 
+            $myMsg .= " User SELECTED >".$update_main_form. "< ";
+            $myMsg .= " nav >".$_SESSION["Group"]. "< ";
+            // $current_user    
+        } 
+        //else {
             // say nothing & do nothing
-        }
+        //}
     }
 
         // check the hidden field on each form to get form name. check security
