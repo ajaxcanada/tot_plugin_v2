@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>zwaroop's home</title>
+<!-- include jquery library file-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- The ajax/jquery stuff -->
+<script type="text/javascript">
+ 
+$(document).ready(function(){
+//Get the input data using the post method when Push into mysql is clicked .. we pull it using the id fields of ID, Name and Email respectively...
+$("#insert").click(function(){
+//Get values of the input fields and store it into the variables.
+var ID=$("#ID").val();
+var Name=$("#Name").val();
+var Email=$("#Email").val();
+ 
+//use the $.post() method to call insert.php file.. this is the ajax request
+$.post('insert.php', {ID: ID, Name: Name, Email: Email},
+function(data){
+$("#message").html(data);
+$("#message").hide();
+$("#message").fadeIn(1500); //Fade in the data given by the insert.php file
+});
+return false;
+});
+});
+</script>
+</head>
+<body>
+<label>ID: </label> <input id="ID" type="text" />
+<label>Name: </label> <input id="Name" type="text" />
+<label>E-Mail: </label> <input id="Email" type="text" />
+<a id="insert" title="Insert Data" href="#">Push into mysql</a>
+ <!-- For displaying a message -->
+ 
+<div id="message"></div>
+</body>
+</html>
