@@ -1,142 +1,181 @@
-jQuery(document).ready(function($) {
-	var data = {
-		'action': 'my_action',
-		'whatever': ajax_object.we_value      // We pass php values differently!
-	};
-	// We can also pass the url value separately from ajaxurl for front end AJAX implementations
-	jQuery.post(ajax_object.ajax_url, data, function(response) {
-		alert('Got this from the server: ' + response);
-	});
+// NOTE jQuery(document).ready... DOES NOT WORK IN CHROME, IT HAS TO BE $(document).ready...
+$(document).ready(function() {
+    if (jQuery) {
+     console.log( 'loaded jQuery');
+//        hide the php server side stuff to speed user interface
+        $("#js_enabled_hide_buttons").hide();
+    } else {
+     console.log( 'jQuery didnt load');
+        //alert("jQuery library is not found!");
+        $("#js_enabled_hide_buttons").show();
+    }
 });
 
-//jQuery(document).ready(function() {
-//    if (jQuery) {
-//        //alert("jQuery library is loaded!");
-//        //hide the php server side stuff to speed user interface
-//        $("#js_enabled_hide_buttons").hide();
-//    } else {
-//        //alert("jQuery library is not found!");
-//        $("#js_enabled_hide_buttons").show();
-//    }
-//    $("#group_selected").click(function() {
-//    var testVal = $("#group_selected").val();
+// THIS WORKS. FINALLY. ANOTHER WEEK SPENT FIGURING OUT HOW SOMETHING WORKS. 082414: WOO-HOO
+$("#sub").click(function(event) {
+    var vname = this.name;
+
+    console.log( vname );
+    console.log( 'ready!' );
+    var data = {
+        action: 'my_action',
+        security: MyAjax.security,
+        dbase: vname
+    };
+    
+    console.log(data);
+    $.ajax({
+        url: MyAjax.ajaxurl,
+        type: "post",
+        data: data,
+        success: function(output) {
+            $("#result").html('<br>' + output);
+        },
+        error: function(output) {
+            $("#result").html('your a failure'+output);
+        }
+    });
+    event.preventDefault();
+});
+
+
+
+//jQuery(document).ready(function($) {
+////    ("#sub").click(function(event) {
+////    alert('Got this from the server: ' + response);
+////    });
+//    //works
+//    var data = {
+//        action: 'my_action',
+//        security: MyAjax.security,
+//        whatever: 1234
+//    };
+//
+//    // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+//    $.post(MyAjax.ajaxurl, data, function(response) {
+//        $("#result").html("works " + response);
+//        //alert('Got this from the server: ' + response);
 //    });
 //});
+//
+//
+//$("#sub").click(function($) {
+//    alert("pass");//Do stuff here
+//    $.post(MyAjax.ajaxurl, data, function(response) {
+//      $("#result").html(response);
+//alert('Got this from the server: ' + response);
+//  });
+//    $.ajax({
+//        url: MyAjax.ajaxurl,
+//        type: "post",
+//        data: ({action: 'my_action'}),
+//        success: function(output) {
+//            $("#result").html('Submitted successfully<br>' + output);
+////            //alert("success");//Do stuff here
+//        },
+//        error: function() {
+//            $("#result").html('your a failure');
+//            //alert("failure");//Do stuff here
+//        }
+//    });
+/* Stop form from submitting normally */
+//  event.preventDefault();
+//});
 
-$(function(){
-            $('#inp').keyup(function(){
+//$(document).click(function($) {
+//        alert("pass_1");//Do stuff here
+//	$('#tot_ready').click(function(event) {
+//            alert('Hey! You have clicked the button!');
+//	});
+//});
 
-            var inpval=$('#inp').val();
 
-            $.ajax({
-                type: 'POST',
-                data: ({p : inpval}),
-                url: 'ajax_listener.php',
-                success: function(data) {
-                     $('.result').html(data);
-          }
-        });
-    });
-});
- 
-function showUser(str) {
-    if (str === "") {
-        document.getElementById("group_selected").innerHTML = "";
-        return;
-    }
-    //talk to server
-    if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp = new XMLHttpRequest();
-    } else { // code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-//    update the field
-//            xmlhttp.onreadystatechange = function() {
-//                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-//                    document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-//                }
-//            }
-//    ;
-    //data to server
-    xmlhttp.open("GET", "plugin_main_form.php?q=" + str, true);
-    xmlhttp.send();
-}
+//$("#sub").click(function(event) {
+//
+//    /* Stop form from submitting normally */
+//    event.preventDefault();
+//
+//    /* Clear result div*/
+//    $("#result").html('');
+//
+//    /* Get some values from elements on the page: */
+//    var values = $("form").serializeArray();
+//    alert(values);
+//    /* Send the data using post and put the results in a div */
+//    $.ajax({
+//        url: "insert.php",
+//        type: "post",
+//        data: values,
+//        success: function() {
+//            alert("success");
+//            $("#result").html('Submitted successfully');
+//        },
+//        error: function() {
+//            alert("failure");
+//            $("#result").html(values);
+//        }
+//    });
+//});
+//
 
-//function showUser(str) {
-//  if (str==="") {
-//    document.getElementById("txtHint").innerHTML="";
-//    return;
-//  } 
-//  if (window.XMLHttpRequest) {
-//    // code for IE7+, Firefox, Chrome, Opera, Safari
-//    xmlhttp=new XMLHttpRequest();
-//  } else { // code for IE6, IE5
-//    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-//  }
-//  xmlhttp.onreadystatechange=function() {
-//    if (xmlhttp.readyState===4 && xmlhttp.status===200) {
-//      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
-//    }
-//  };
-//  xmlhttp.open("GET","getuser.php?q="+str,true);
-//  xmlhttp.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$("#sub").click(function() {
+// LOOK INTO POST FOR ACTION FROM FORM
+//    var data = $("#group_selected").val;
+//var data = $("#main_form_data :input").serializeArray();
+//alert(data);
+
+
+//  $.post($("#main_form_data").attr("name"), data, function(info) { $("#result").html(info);
+//$("#result").html(data);
+//        });
+//clearInput();
+//});
+
+//$("#main_form_data").submit(function() {
+//    return false;
+//});
+//function clearInput() {
+//    $("#main_form_data :input").each(function() {
+//        $(this).val('');
+//    });
 //}
 
-
-//jQuery(document).ready(function() {
-//    $("#group_selected").click(function() {
-//        if (jQuery) {
-//            //alert("jQuery library is loaded!");
-//            $("#js_enabled_hide_buttons").hide();
-//            var testVal = $("#group_selected").val();
-//
-//        } else {
-//            //alert("jQuery library is not found!");
-//        }
-//    });
-//});
-
-//
-//jQuery(function(){
-//        $("#submit").click(function(){
-//        //$(".error").hide();
-//        //var hasError = false;
-//        var passwordVal = $("#password").val();
-//        var checkVal = $("#password-check").val();
-//        if (passwordVal == '') {
-//            $("#password").after('<span class="error">Please enter a password.</span>');
-//            hasError = true;
-//        } else if (checkVal == '') {
-//            $("#password-check").after('<span class="error">Please re-enter your password.</span>');
-//            hasError = true;
-//        } else if (passwordVal != checkVal ) {
-//            $("#password-check").after('<span class="error">Passwords do not match.</span>');
-//            hasError = true;
-//        }
-//        if(hasError == true) {return false;}
-//    });
-//});
-//
-//
-////jQuery(document).ready(function (){
-//jQuery(function(){
-//        $("#").click(function(){
-//            alert("jQuery is loaded and ready to be used");
-//        $(".error").hide();
-//        var hasError = false;
-//        var passwordVal = $("#password").val();
-//        var checkVal = $("#password-check").val();
-//        if (passwordVal == '') {
-//            $("#password").after('<span class="error">Please enter a password.</span>');
-//            hasError = true;
-//        } else if (checkVal == '') {
-//            $("#password-check").after('<span class="error">Please re-enter your password.</span>');
-//            hasError = true;
-//        } else if (passwordVal != checkVal ) {
-//            $("#password-check").after('<span class="error">Passwords do not match.</span>');
-//            hasError = true;
-//        }
-//        if(hasError == true) {return false;}
-//                });
-//});
+//alert("post");

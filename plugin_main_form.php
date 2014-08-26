@@ -1,88 +1,41 @@
 <?php
 
-
-//$cuid = get_current_user_id();
-//global $wpdb;
-////LOAD THE TABLE NAME
-//$db_records = $wpdb->prefix . "tot_db_records"; 
-//// LOAD THE QUERY 
-//$query_records = "SELECT * FROM ". $db_records;  // WHERE user_id={$cuid}"; 
-//
-//// EXECUTE THE QUERY
-//$records_results = mysql_query($query_records) or die(mysql_error()); 
-//// get records from database
-//
-//while ($row = mysql_fetch_assoc($records_results)) {  
-//    foreach ($row as $fieldname => $fieldvalue) {
-//            switch ($fieldname) {
-//                case 'id':
-//                case 'user_id':
-//                case 'date_recorded': break;
-//                default:
-////                    $out .= "<input type='text' name='$fieldname' id='$fieldname' value='$fieldvalue'>"; // capture the new record name
-//            }
-//}
-//}
-//$name=$_POST['p'];
-//data: ({p : inpval}),
-//    while($row=mysql_fetch_assoc($query)){
-//    $row['name'];
-//
-//}    
-
-//$con = mysqli_connect('localhost','peter','abc123','my_db');
-//if (!$con) {
-//  die('Could not connect: ' . mysqli_error($con));
-//}
-
-//function call_from_js (){
-//$q = intval($_GET['q']);
-//
-//mysqli_select_db($con,"ajax_demo");
-//$sql="SELECT * FROM user WHERE id = '".$q."'";
-//$result = mysqli_query($con,$sql);
-//
-//}
-
 // *************************************************************
 // CREATE THE MAIN FORM HERE
-function view_user_main_form() {
- //  $out = '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
-
-        $start = microtime(TRUE);  // starts a microtimer called start
-        // OUTPUT PAGE HTML     
-        $out .= "<html><body>"; // start of the html
-        // MAIN_PAGE ==================================
-        $out .= "<div id='div_outline_on_all_forms'>"; 
-        // GET USER ID OR EXIT TO WELCOME
-        $cuid = check_user_id();
-        // GET THE ACTIVE GROUP
-        $group = check_user_last_access($cuid);
-        // DISPLAY ANY MESSAGES
-        $out .= create_message_area(); // MESSAGE CODE
-        // SET THE DEFAULT NAVIGATION
-        $out .= create_navigation($group); // NAVIGATION CODE
-        // CREATE THE MAIN AREA OF THE FORM
-        $out .= create_main_area($cuid, $group); // MAIN CODE
-        // CREATE FOOTER AREA
-        $out .= create_main_footer($start); // FOOTER CODE
-        // END THE PAGE DIV        
-        $out .= "</div> "; // </ END OF MAIN FORM 
-        // FINISH THE HTML
-        $out .= "</body></html> "; // </ end of our html
-        // SEND EVERYTHING BACK TO MAIN
-        return $out;
+function view_user_main_form() 
+{
+    // NEED THIS FOR JQUERY TO WORK
+    echo '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
+    $start = microtime(TRUE);  // starts a microtimer called start
+    // OUTPUT PAGE HTML     
+    $out .= "<html><body>"; // start of the html
+    // MAIN_PAGE ==================================
+    $out .= "<div id='div_outline_on_all_forms'>";
+    // GET USER ID OR EXIT TO WELCOME
+    $cuid = check_user_id();
+    // GET THE ACTIVE GROUP
+    $group = check_user_last_access($cuid);
+    // DISPLAY ANY MESSAGES
+    $out .= create_message_area(); // MESSAGE CODE
+    // SET THE DEFAULT NAVIGATION
+    $out .= create_navigation($group); // NAVIGATION CODE
+    // CREATE THE MAIN AREA OF THE FORM
+    $out .= create_main_area($cuid, $group); // MAIN CODE
+    // CREATE FOOTER AREA
+    $out .= create_main_footer($start); // FOOTER CODE
+    // END THE PAGE DIV        
+    $out .= "</div> "; // </ END OF MAIN FORM 
+    // FINISH THE HTML
+    $out .= "</body></html> "; // </ end of our html
+    // SEND EVERYTHING BACK TO MAIN
+    return $out;
 }
+
 
 // *************************************************************
 // CREATE THE MAIN FORM HERE
 function create_main_area($user_id, $user_group_selected) {
-
-//    if(!isset($_SESSION['js'])||$_SESSION['js']==""){
-//  echo "<noscript><meta http-equiv='refresh' content='0;url=/get-javascript-status.php&js=0'> </noscript>";
-//   $js = true;
-   
-   
+    console.log( 'creating main form');
     global $wpdb;  // wordpress database connection
     // GET THE FIELD TITLES FOR THE GROUPS
     $titles = load_the_group_names($user_group_selected);
@@ -93,7 +46,7 @@ function create_main_area($user_id, $user_group_selected) {
     $records_results = mysql_query($query_records) or die(mysql_error()); // get records from database
     // DIV_MAIN_FORM ============================
     $out .= "<div id='TOT_MAIN_USER_FORM'>";
-    $out .= "<form name='main_form_data' method='POST'>";
+    $out .= "<form name='main_form_data' id='main_form_data' method='' action=''>";
     $out .= "<hr>";
 
     $out .= "<input type='hidden' name='main_form'>"; // unique identifier for this form
@@ -101,7 +54,7 @@ function create_main_area($user_id, $user_group_selected) {
     //$out .= $user_group_selected.'<br>';
     // OUTPUT THE DATA ==========================
 
-    $r_count = 0;
+    //$r_count = 0;
     $out .= $titles;
     while ($row = mysql_fetch_assoc($records_results)) {  // load the group_rows of fields data 
         $out .= "<div id='main_form_input_fields'>";
@@ -122,13 +75,19 @@ function create_main_area($user_id, $user_group_selected) {
         }
         $out .= "</div><hr>";
     }
-
+    //$out .= "First name: <input type='text' id='txt1' onkeyup='showHint(this.value)' />";
     $out .= "<div id='js_enabled_hide_buttons'>";
-    
+    //$out .= "<input type='submit' name='TEST_JQ' value='update record'>";
     $out .= "<input type='submit' name='UPDATE_MAIN_RECORD' value='update record'>";
     $out .= "<input type='submit' name='DELETE_MAIN_RECORD' value='delete record'>";
     $out .= "</div>";
-
+    $out .= "<input type='submit' name='record' id='sub' value='update_main_record' />";
+    $out .= "<input type='submit' name='fields' id='sub' value='update_main_fields' />";
+    //$out .= "<input type='submit' name='sub_1' id='sub_1' value='jq test 1' />";
+    //$out .= "<button name='sub' id='sub'>save in jq</button>";
+    //$out .= "<div id='results'></span>";
+    $out .= "<br><span id='result'></span>";
+    
     $out .= "</form>"; // End the form 
     $out .= "</div>";  // end DIV_MAIN_FORM  ======================================
     return $out;

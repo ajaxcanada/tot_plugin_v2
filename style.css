@@ -4,7 +4,7 @@ This query will take effect for any screen smaller than 760px
 and also iPads specifically. */
 
 
-.styled span.error {
+/*.styled span.error {
 font-size: 11px; position: absolute; top: 0; right: 0; display: block; padding: 2px;
 }
 .styled fieldset li.error {
@@ -43,7 +43,7 @@ margin-bottom: 0; padding: 2px 5px;
 }
 form input.btn-submit {
 padding: 3px 7px; border: 1px solid #fff; background: #066CAA; font-size: 12px;
-}
+}*/
 
 
 
