@@ -1,6 +1,7 @@
 <?php
 
 /* putting all the outputs in defines to kiss */
+define('myMsg', '');
 
 define(unregistered_user_welcome_message, 'Welcome to ToolsOnTools.com<br>'
         . 'This is a members only page so you need to be logged in to access it!<br>'
@@ -10,7 +11,6 @@ define(unregistered_user_welcome_message, 'Welcome to ToolsOnTools.com<br>'
         . '<br><br>Have a great day!');
 
 
-define(nav_div_label, 'Group<br>')
-
-
+define(nav_div_label, 'Group<br>');
+define(add_record_input_ok, "<input type='text' name='new_name' placeholder='enter a new name'>")
 ?>

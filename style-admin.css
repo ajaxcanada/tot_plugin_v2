@@ -1,0 +1,12 @@
+/*    Created on : Sep 26, 2014, 12:40:41 AM
+      Author     : ajax                                   */
+
+.admin-form-input-fields {
+    overflow-x: scroll; 
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    border:1px ;
+    border-color: #000; 
+    border-radius:0px;
+}

@@ -11,15 +11,4 @@ function hide_header_on_this_page(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 ?>

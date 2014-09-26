@@ -1,0 +1,252 @@
+#bg { position: fixed; top: 0; left: 0; }
+.bgwidth { width: 100%; }
+.bgheight { height: 100%; }
+
+#main-form-outline{
+    width: 100%;
+    font-size: 1em;
+    font-weight:bold;
+    color: #00008B;
+    padding:5px 10px; 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #888;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    background-color:  	#F8F8F8 ;
+
+    white-space: nowrap;
+}
+
+
+.INPUT_MAIN_ICON{
+    background-color:#fff; ; 
+    /*   padding-top: 10px;*/
+    /*   height: 40px;
+       width: 40px;*/
+    display: inline-block;
+    /*    height: 134px;*/
+    padding: 2px;
+    margin: 2px;
+    vertical-align: top;
+    /*    width: 104px;*/
+}
+.red_INPUT_MAIN_ICON {
+    border-color: #FF0000;
+}
+
+#USER_UPLOAD_AREA_DIV{
+    margin: 2px;
+    padding: 2px;
+    border-color: #FF0000; 
+    /*    red*/
+}
+
+/* 
+CSS FOR MAIN FORM
+*/
+#main-icon-area-style{
+    /*    margin: 12px;
+        padding: 12px;*/
+}
+/*LABEL OVER FORM INPUT*/
+.main-input-label{
+    font-size: .7em;
+    display: inline-block;
+    width: 120px;
+    text-align: right; 
+    margin-left: 12px;
+    margin-right: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: #fff;
+
+}
+// display:block; 
+/* ================================== */
+/* This is the smaller screen sizes CSS */
+/* ================================== */
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    .body{
+
+    }
+
+    #wrapper {
+        width: 100%;      margin: 0 auto; 
+    }
+
+    #TOT_NAV{
+        float: left;    width: 95%; 	min-width: 95%;     
+        padding-bottom: 2px;	padding-left: 0px;
+    }
+
+    #TOT_MAIN_USER_FORM{
+        float: top;    
+        /*        min-width: 95%;     */
+        /*        min-height: 200px;*/
+        padding-bottom: 2px; 	padding-left: 0px;
+    }
+
+    #TOT_FOOTER{
+        float: bottom; 	clear: both;   min-width: 95%;	  height: 30px;    
+        padding-left: 0px;    padding-bottom: 2px;
+
+    }
+
+    .group-button {
+        margin-bottom: 20px;
+    }
+    .js-navigator{
+        margin-bottom: 20px;
+    }
+}
+
+
+
+.body{
+    margin: 0 auto;  	width:100%;       font-family: verdana;
+    padding: 0px;
+    margin: 0px;
+}
+/*#tot-nav-buttons{
+    display: inline-block;  
+}
+
+#tot-nav-edits{
+    display: inline-block;  
+}*/
+
+#TOT_NAV{ 
+    float: top;     width: 100%; 	
+
+    height: inherit;     
+    background-color: #ccc; 
+
+    padding-left: 2px ;
+    padding-top: 2px ;
+
+    border-style: solid;  
+    border-width: 1px;  	
+    border-color: #ccc;  	
+
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    -moz-border-top-left-radius: 2px;
+    -moz-border-top-right-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+}
+#copyright{
+    text-align: right;
+
+}
+#TOT_MAIN_USER_FORM{
+    float: top;  
+    clear: both;
+
+    width: 100%;      
+    min-height: 200px;
+    padding-left: 2px ;
+    padding-top: 2px ;
+
+    padding-left: 2px; 	
+    padding-top: 2px;
+
+    border-style: solid;  	
+    border-width: 1px;  	
+    border-color: #ccc;
+
+    background-color: #fff;
+
+    overflow-x: auto; 
+    overflow-y: auto;
+
+    white-space: nowrap;
+}
+
+#TOT_FOOTER{
+    font-size: .6em;
+    float: bottom; 	
+    /*    clear: both; 	*/
+    /*    height: 30px;  	*/
+
+    padding-left: 10px;  
+    /*    border-style: hidden; 	
+        border-width: 1px; 	
+        border-color: #888; */
+    border-bottom-left-radius: 5px;     border-bottom-right-radius: 5px;
+    white-space: nowrap;
+}
+
+#send_SMS{
+    border-style: solid;  	border-width: 1px;  	border-color: #000000;
+    margin-bottom: 10px; 
+    display:none;
+}
+
+
+div.bottom {
+    height: 200px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 4px solid #00ccff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #575757;
+}
+
+
+
+/*USED ON MAIN FORM*/
+#existing_record_group {
+    padding: 2px 2px;
+    height: 20px;
+    border-radius: 5px;
+    font-family: verdana;
+    //font-size: .5em;
+}
+.group-button {
+    font-size: 1em;
+    height: 26px;
+    font-size: .7em;
+    font-family:Verdana;
+    font-weight: normal;
+    padding-right: 6px; 
+    padding-left: 6px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    color:#000000;
+    background-color: #fff;
+    border:none;
+    cursor:pointer;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    display:inline-block;
+    text-decoration:none;
+
+}
+.js-navigator{
+    font-size: 1em;
+    height: 26px;
+    font-size: .7em;
+    font-family:Verdana;
+    font-weight: normal;
+    padding-right: 6px; 
+    padding-left: 6px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    color:#fff;
+    background-color: #575757;
+    border:none;
+    cursor:pointer;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    display:inline-block;
+    text-decoration:none;
+
+}
